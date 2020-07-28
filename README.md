@@ -5,6 +5,7 @@
 - [GitHub User Link](https://github.com/mkgude)
 - [GitHub Repository Link](https://github.com/mkgude/hw10-team-dashboard)
 - mkgude@gmail.com
+- [video link](https://drive.google.com/file/d/11zPxTM8rwptXlbatR1-piQyQL7GNFxGB/view)
 
 ### Table of Contents
 
