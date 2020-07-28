@@ -4,9 +4,13 @@ const Intern = require("./Develop/lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const util = require("util");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+// const readFileAsyn = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 const render = require("./Develop/lib/htmlRenderer");
 
@@ -47,12 +51,12 @@ function promptUser() {
             {
               type: "input",
               message: "What is your company id?",
-              name: "email",
+              name: "id",
             },
             {
               type: "input",
               message: "What is your office number?",
-              name: "office-number",
+              name: "officeNumber",
             },
           ])
           .then(function (managerReply) {
@@ -74,7 +78,7 @@ function promptUser() {
             {
               type: "input",
               message: "What is your company id?",
-              name: "email",
+              name: "id",
             },
             {
               type: "input",
@@ -101,7 +105,7 @@ function promptUser() {
             {
               type: "input",
               message: "What is your company id?",
-              name: "email",
+              name: "id",
             },
             {
               type: "input",
@@ -138,8 +142,7 @@ function newTeamMember(reply) {
         promptUser();
       } else {
         console.log(teamArray);
-        // render HTML function
-        // generateHtml();
+        init();
       }
     })
     .catch(function (err) {
@@ -148,17 +151,18 @@ function newTeamMember(reply) {
     });
 }
 
-// function generateHtml() {
-//   console.log(teamArray);
-//   const newHtml = render(teamArray);
-// }
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
 // and Intern classes should all extend from a class named Employee; see the directions
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-// async function init() {
-//   const response = await inquirer.prompt(questions);
-//   console.log(response);
-// }
-// init();
+
+async function init() {
+  try {
+    let html = render(teamArray);
+
+    await writeFileAsync(outputPath, html);
+  } catch (err) {
+    console.log(err);
+  }
+}
