@@ -5,13 +5,12 @@
 - [GitHub User Link](https://github.com/mkgude)
 - [GitHub Repository Link](https://github.com/mkgude/hw10-team-dashboard)
 - mkgude@gmail.com
-- [![License: None](https://img.shields.io/badge/License-None-blue.svg)](https://opensource.org/licenses/None)
 
 ### Table of Contents
 
 1. [Description](#description)
 2. [Installation](#installation)
-3. [Usage](#usage)
+3. [Usage & User Story](#usage)
 4. [Contributing](#contributing)
 5. [Questions](#questions)
 
@@ -26,6 +25,7 @@
 ## Usage
 
 - Use terminal to run npm app.js
+- As a manager I want to generate a webpage that displays my team's basic info so that I have quick access to emails and GitHub profiles
 
 ## Contributing
 
