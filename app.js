@@ -147,7 +147,6 @@ function newTeamMember() {
     })
     .catch(function (err) {
       console.log(err);
-      render();
     });
 }
 
@@ -160,6 +159,7 @@ function newTeamMember() {
 async function init() {
   try {
     let html = render(teamArray);
+    console.log(html);
     await writeFileAsync(outputPath, html);
   } catch (err) {
     console.log(err);
