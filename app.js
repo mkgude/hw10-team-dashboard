@@ -9,7 +9,6 @@ const util = require("util");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-// const readFileAsyn = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const render = require("./Develop/lib/htmlRenderer");
@@ -31,6 +30,7 @@ const render = require("./Develop/lib/htmlRenderer");
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
 let teamArray = [];
+
 function promptUser() {
   return inquirer
     .prompt([
@@ -128,7 +128,7 @@ function promptUser() {
 }
 promptUser();
 
-function newTeamMember(reply) {
+function newTeamMember() {
   inquirer
     .prompt([
       {
@@ -160,7 +160,6 @@ function newTeamMember(reply) {
 async function init() {
   try {
     let html = render(teamArray);
-
     await writeFileAsync(outputPath, html);
   } catch (err) {
     console.log(err);
