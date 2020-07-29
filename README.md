@@ -19,6 +19,8 @@
 
 - This tool generates an html page that provide a list of employees and their information
 
+![finalhtml](./Assets/finalhtml.png")
+
 ## Installation
 
 - Use terminal to run npm app.js and proceed through the question prompts for each employee. Once all employees have been added, open the html file in the output folder to see your results.
